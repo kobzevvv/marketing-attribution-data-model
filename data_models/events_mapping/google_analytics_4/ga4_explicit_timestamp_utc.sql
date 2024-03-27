@@ -8,4 +8,4 @@ select
 
     *
 
-from `bigquery-account-id.marketing_attribution.ga4_daily_parts_to_single_dataset
+from `bigquery-account-id.marketing_attribution.ga4_daily_parts_to_single_dataset`
