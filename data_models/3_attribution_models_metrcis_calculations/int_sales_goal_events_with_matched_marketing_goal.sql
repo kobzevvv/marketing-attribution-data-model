@@ -12,6 +12,22 @@ with
         select * from {{ref('intermediate_marketing_goal_events_with_marketing_channel_events_array')}}
     ),
 
+    gsheet_marketing_attribution_params as (
+        select * from ref('gsheet_marketing_attribution_params')
+    ),
+
+    -- params
+        {% set marketing_goal_event_ids_list_by_spriority_to_match_with_sales_goal %}
+            select param_value
+            from gsheet_marketing_attribution_params
+            where 
+                param_name = 'marketing_goal_event_id_by_spriority_to_match_with_sales_goal'
+        {% endset %}
+
+        (   select marketing_channel_features
+            from gsheet_marketing_channel_features
+        )                                                                               as traffic_source_attributes_names_array,
+
 --
     sales_key_goal_events_with_matched_marketing_key_goal as (
         with
@@ -57,14 +73,11 @@ with
             sales_goals.event_id,
 
             coalesce(
-                event_id_with_paid_traffic_source,
-                event_id_with_non_direct_traffic_source,
-                event_id_with_not_zero_traffic_source,
-                event_id_with_any_traffic_source_events
+                {{marketing_goal_event_ids_list_by_spriority_to_match_with_sales_goal}}
             )                                                                           as matched_marketing_goal_event_id   
 
-        from intermediate_sales_goal_events                                                  as sales_goals
-        join intermediate_marketing_goal_events_with_marketing_channel_events_array           as marketing_goals
+        from intermediate_sales_goal_events                                             as sales_goals
+        join intermediate_marketing_goal_events_with_marketing_channel_events_array     as marketing_goals
         using prospect_id
 
         group by sales_goals.event_id

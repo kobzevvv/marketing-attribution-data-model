@@ -24,9 +24,8 @@ with
                 param_name = 'condition_to_exclude_test_and_noise_prospects'
         {% endset %}
 
-        (
-        select marketing_channel_features
-        from gsheet_marketing_channel_features
+        (   select marketing_channel_features
+            from gsheet_marketing_channel_features
         )                                                                               as traffic_source_attributes_names_array,
 
     web_visit_events__with_company_info as (
