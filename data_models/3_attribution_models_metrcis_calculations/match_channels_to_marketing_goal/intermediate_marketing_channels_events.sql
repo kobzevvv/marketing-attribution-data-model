@@ -5,7 +5,7 @@
 with
 -- input 
     intermediate_activity_events_with_identified_email_materialized as (
-        select * from {{ref('dim_activity_events')}}
+        select * from {{ref('activity_stream')}}
     ),
 
 
