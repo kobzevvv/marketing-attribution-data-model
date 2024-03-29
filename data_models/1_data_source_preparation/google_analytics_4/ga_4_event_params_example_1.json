@@ -1,0 +1,173 @@
+[
+    {
+        "key": "batch_page_id",
+        "value": {
+            "string_value": null,
+            "int_value": 1711455254293,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "sfmc_journey_name",
+        "value": {
+            "string_value": "New Journey - March 18 2024 at 3.41 PM",
+            "int_value": null,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "ga_session_id",
+        "value": {
+            "string_value": null,
+            "int_value": 1711455256,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "content",
+        "value": {
+            "string_value": "486701",
+            "int_value": null,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "page_location",
+        "value": {
+            "string_value": "https://natcon24.eventscribe.net/?utm_source=sfmc&utm_term=NatCon24&utm_content=486701&utm_id=f16ef838-8f0e-49ab-82be-6d983acba678&sfmc_activityid=74954791-be9d-4407-8617-c1003b263389&utm_medium=email&utm_campaign=March%202024%20Newsletter%203.19.24&sfmc_journey_id=f16ef838-8f0e-49ab-82be-6d983acba678&sfmc_journey_name=eN%20woJruen%20y%20-aMcr%20h812%2020%204ta3%204.%201MP&sfmc_activity_id=74954791-be9d-4407-8617-c1003b263389&sfmc_activity_name=aMcr%20h0242N%20welsteet%20r.3912.4&sfmc_asset_id=486701&sfmc_channel=email",
+            "int_value": null,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "sfmc_asset_id",
+        "value": {
+            "string_value": "486701",
+            "int_value": null,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "campaign_id",
+        "value": {
+            "string_value": "f16ef838-8f0e-49ab-82be-6d983acba678",
+            "int_value": null,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "term",
+        "value": {
+            "string_value": "NatCon24",
+            "int_value": null,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "batch_ordering_id",
+        "value": {
+            "string_value": null,
+            "int_value": 1,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "sfmc_activity_name",
+        "value": {
+            "string_value": "March 2024 Newsletter 3.19.24",
+            "int_value": null,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "page_title",
+        "value": {
+            "string_value": "NATCON24",
+            "int_value": null,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "sfmc_journey_id",
+        "value": {
+            "string_value": "f16ef838-8f0e-49ab-82be-6d983acba678",
+            "int_value": null,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "sfmc_channel",
+        "value": {
+            "string_value": "email",
+            "int_value": null,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "session_engaged",
+        "value": {
+            "string_value": "0",
+            "int_value": null,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "sfmc_activity_id",
+        "value": {
+            "string_value": "74954791-be9d-4407-8617-c1003b263389",
+            "int_value": null,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "medium",
+        "value": {
+            "string_value": "email",
+            "int_value": null,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "ga_session_number",
+        "value": {
+            "string_value": null,
+            "int_value": 1,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "campaign",
+        "value": {
+            "string_value": "March 2024 Newsletter 3.19.24",
+            "int_value": null,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "source",
+        "value": {
+            "string_value": "sfmc",
+            "int_value": null,
+            "float_value": null,
+            "double_value": null
+        }
+    }
+]
