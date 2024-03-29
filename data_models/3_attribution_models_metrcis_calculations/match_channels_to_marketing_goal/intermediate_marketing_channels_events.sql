@@ -82,7 +82,7 @@ with
             or  traffic_source_features_map['marketing_channel'] ilike '%Ads%'            as is_paid_channel,
 
             --
-                traffic_source_features_map['session_channel'] 
+                traffic_source_features_map['marketing_channel'] 
             in  
                 [   'direct',
                     'offline'

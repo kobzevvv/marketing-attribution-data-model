@@ -9,8 +9,8 @@ with
 		select * from {{ref('intermediate_marketing_goal_events_with_new_engagement_started')}}
 	),
 
-	intermediate_companies_with_marketing_channels_events_array as (
-		select * from {{ref('intermediate_companies_with_marketing_channels_events_array')}}
+	intermediate_prospects_with_marketing_channels_events_array as (
+		select * from {{ref('intermediate_prospects_with_marketing_channels_events_array')}}
 	),
 
 	marketing_key_goal_events_filtered_new_engedgment_started as (
@@ -22,7 +22,7 @@ with
 	marketing_key_goal_events_with_traffic_sources_array as (
 		select *
 		from marketing_key_goal_events_filtered_new_engedgment_started		
-		left join intermediate_companies_with_marketing_channels_events_array
+		left join intermediate_prospects_with_marketing_channels_events_array
 		using prospect_id
 	),
 
