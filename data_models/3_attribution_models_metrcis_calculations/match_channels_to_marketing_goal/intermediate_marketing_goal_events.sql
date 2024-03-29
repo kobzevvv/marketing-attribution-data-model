@@ -10,9 +10,9 @@ with
     ),
 
     -- params
-        (           case_id != 'domain.com'
-            and     not match(case_id, '^\\d+\\.\\d+$')
-            and     position(case_id,'.') > 0
+        (           prospect_id != 'domain.com'
+            and     not match(prospect_id, '^\\d+\\.\\d+$')
+            and     position(prospect_id,'.') > 0
         )                                                                               as is_prospect_id_complient,
 
     web_visit_events__with_company_info as (
@@ -41,7 +41,7 @@ with
 
         select 
             event_datetime,
-            toLowCardinality(case_id)                                                   as prospect_id,
+            toLowCardinality(prospect_id)                                                   as prospect_id,
             contact_email,
             toLowCardinality(event_name)                                                as event_name,
             event_id,

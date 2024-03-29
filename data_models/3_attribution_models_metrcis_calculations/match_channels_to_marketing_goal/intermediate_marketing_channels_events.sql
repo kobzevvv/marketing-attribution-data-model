@@ -12,10 +12,10 @@ with
 
 
     -- params
-        (           case_id != 'domain.com'
-            and     not match(case_id, '^\\d+\\.\\d+$')
-            and     position(case_id,'.') > 0
-        )                                                                               as is_case_id_equal_prospect_prospect_id,
+        (           prospect_id != 'domain.com'
+            and     not match(prospect_id, '^\\d+\\.\\d+$')
+            and     position(prospect_id,'.') > 0
+        )                                                                               as is_prospect_id_equal_prospect_prospect_id,
 
         [ 
             'traffic_source_medium',
@@ -35,7 +35,7 @@ with
         from intermediate_activity_events_with_identified_email_materialized
         
         where       
-                    is_case_id_equal_prospect_prospect_id
+                    is_prospect_id_equal_prospect_prospect_id
     ),
 
     events_with_granula_and_sources_params_extracted as (
@@ -44,7 +44,7 @@ with
 
         select 
             event_datetime,
-            case_id                                                                     as prospect_id,
+            prospect_id                                                                     as prospect_id,
             attributes_map['contact_email']                                             as contact_email,
             event_id,
             
