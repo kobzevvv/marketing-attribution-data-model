@@ -1,6 +1,7 @@
-{{ config( tags=["models_weights_calculation"],
-         materialized='ephemeral',
-         schema = generate_schema_name(var("custom_schema")) ) }}
+{{ config( 
+        tags=["models_weights_calculation"],
+        materialized='ephemeral'
+) }}
 
 with
 
@@ -9,27 +10,36 @@ with
         select * from {{ref('activity_stream')}}
     ),
 
-    -- params
-        (           prospect_id != 'domain.com'
-            and     not match(prospect_id, '^\\d+\\.\\d+$')
-            and     position(prospect_id,'.') > 0
-        )                                                                               as is_prospect_id_complient,
+    gsheet_marketing_attribution_params as (
+        select * from ref('gsheet_marketing_attribution_params')
+    ),
 
+    gsheet_marketing_and_sales_goals as (
+        select * from ref('gsheet_marketing_and_sales_goals')
+    ),
+   
+--
     web_visit_events__with_company_info as (
+
+        {% set condition_to_exclude_test_and_noise_prospects %}
+            select param_value
+            from gsheet_marketing_attribution_params
+            where 
+                param_name = 'condition_to_exclude_test_and_noise_prospects'
+        {% endset %}
+
+        (   select goal_name
+            from gsheet_marketing_and_sales_goals
+            where is_marketing_goal
+        )                                                                               as marketing_goals_array
+
         select *
         from intermediate_activity_events_with_identified_email_materialized
         
         where       
-                is_prospect_id_complient
+                {{condition_to_exclude_test_and_noise_prospects}}
             and     
-                event_name in  [
-                    'form_submit',
-                    'lead_generated',
-                    'purchase',
-                    'sample_form',
-                    'file_download',
-                    'Closed Won'
-                ]
+                event_name in  marketing_goals_array
     ),
 
     events_with_granula_and_sources_params_extracted as (

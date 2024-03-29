@@ -1,6 +1,7 @@
-{{ config( tags=["models_weights_calculation"],
-         materialized='table',
-         schema = generate_schema_name(var("custom_schema")) ) }}
+{{ config( 
+        tags=["models_weights_calculation"],
+        materialized='table'
+) }}
 
 with
 

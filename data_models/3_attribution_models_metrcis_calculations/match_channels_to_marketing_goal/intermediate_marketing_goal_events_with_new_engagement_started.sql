@@ -1,6 +1,7 @@
-{{ config( tags=["models_weights_calculation"],
-         materialized='table',
-         schema = generate_schema_name(var("custom_schema")) ) }}
+{{ config( 
+        tags=["models_weights_calculation"],
+        materialized='table'
+) }}
 
 with
 
@@ -26,11 +27,20 @@ with
     ),
 
     marketing_key_goal_events_with_lifecycle_status as (
-        with  
+        with 
+
+            {% set sales_engagment_lifecycle_duration %}
+                select param_value
+                from gsheet_marketing_attribution_params
+                where 
+                    param_name = 'sales_engagment_lifecycle_duration'
+            {% endset %}
+
+    
             arrayFilter(
                 marketing_key_goal_event_tuple -> 
                     marketing_key_goal_event_tuple.3 
-                        between event_datetime - interval 2 month
+                        between event_datetime - interval {{sales_engagment_lifecycle_duration}}
                             and event_datetime - interval 1 second,
 
                 marketing_key_goal_events_array

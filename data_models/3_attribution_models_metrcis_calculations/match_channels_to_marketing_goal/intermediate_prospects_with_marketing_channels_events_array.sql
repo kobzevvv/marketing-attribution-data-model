@@ -1,6 +1,7 @@
-{{ config( tags=["models_weights_calculation"],
-         materialized='table',
-         schema = generate_schema_name(var("custom_schema")) ) }}
+{{ config( 
+        tags=["models_weights_calculation"],
+        materialized='table'
+) }}
 
 with 
 
@@ -8,7 +9,6 @@ with
     intermediate_marketing_channels_events as (
         select * from {{ref('intermediate_marketing_channels_events')}}
     ),
-
 
 -- 
     _marketing_channel_events_deduplicated as (

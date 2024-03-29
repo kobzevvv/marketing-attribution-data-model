@@ -1,6 +1,7 @@
-{{ config( tags=["models_weights_calculation"],
-         materialized='ephemeral',
-         schema = generate_schema_name(var("custom_schema")) ) }}
+{{ config( 
+        tags=["models_weights_calculation"],
+        materialized='ephemeral'
+) }}
 
 with
 -- input 
@@ -16,7 +17,8 @@ with
         select * from ref('gsheet_marketing_attribution_params')
     ),
 
-    -- params
+    web_visit_events__with_company_info as (
+
         {% set condition_to_exclude_test_and_noise_prospects %}
             select param_value
             from gsheet_marketing_attribution_params
@@ -24,11 +26,6 @@ with
                 param_name = 'condition_to_exclude_test_and_noise_prospects'
         {% endset %}
 
-        (   select marketing_channel_features
-            from gsheet_marketing_channel_features
-        )                                                                               as traffic_source_attributes_names_array,
-
-    web_visit_events__with_company_info as (
         select *
         from intermediate_activity_events_with_identified_email_materialized
         where ({{condition_to_exclude_test_and_noise_prospects}}) 
@@ -36,12 +33,16 @@ with
 
     events_with_granula_and_sources_params_extracted as (
         with 
-            length(traffic_source_features_map) > 0                                   as if_event_have_any_marketing_channel_info
+            length(traffic_source_features_map) > 0                                     as if_event_have_any_marketing_channel_info,
+
+            (   select marketing_channel_features
+                from gsheet_marketing_channel_features
+            )                                                                           as traffic_source_attributes_names_array
 
         select 
             event_datetime,
             prospect_id                                                                 as prospect_id,
-            features_map['contact_email']                                             as contact_email,
+            features_map['contact_email']                                               as contact_email,
             event_id,
             
             mapFilter(
@@ -72,21 +73,25 @@ with
                 traffic_source_features_map_sorted
             )                                                                           as traffic_source_hash
 
+            {% set is_paid_channel_definition %}
+                select param_value
+                from gsheet_marketing_attribution_params
+                where 
+                    param_name = 'is_paid_channel_definition'
+            {% endset %}
 
+            {% set is_paid_channel_definition %}
+                select param_value
+                from gsheet_marketing_attribution_params
+                where 
+                    param_name = 'is_paid_channel_definition'
+            {% endset %}
 
         select 
             traffic_source_hash,
 
-                traffic_source_features_map['marketing_channel'] ilike '%paid%'
-            or  traffic_source_features_map['marketing_channel'] = 'ABM'
-            or  traffic_source_features_map['marketing_channel'] ilike '%Ads%'            as is_paid_channel,
-
-            --
-                traffic_source_features_map['marketing_channel'] 
-            in  
-                [   'direct',
-                    'offline'
-                ]                                                                       as is_direct_channel, 
+            ({{is_paid_channel_definition}})                                            as is_paid_channel,
+            ({{is_direct_channel_definition}})                                          as is_direct_channel, 
 
             *
 

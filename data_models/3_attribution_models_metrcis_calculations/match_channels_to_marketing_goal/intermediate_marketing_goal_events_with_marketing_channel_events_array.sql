@@ -1,6 +1,7 @@
-{{ config( tags=["models_weights_calculation"],
-         materialized='table',
-         schema = generate_schema_name(var("custom_schema")) ) }}
+{{ 	config( 
+		tags=["models_weights_calculation"],
+        materialized='table'
+) }}
 
 with 
 
@@ -56,13 +57,22 @@ with
 
                     traffic_sources_events_in_lookback_window_datetime_id_and_is_direct_array
                 )
-            ) > 0                                                                       as if_exist_paid_traffic_source
+            ) > 0                                                                       as if_exist_paid_traffic_source,
+
+            {% set attribution_loockback_window %}
+                select param_value
+                from gsheet_marketing_attribution_params
+                where 
+                    param_name = 'attribution_loockback_window'
+            {% endset %}
+
+			
 
 		select
 			prospect_id, 
 			
 			greatest(
-				event_datetime - interval 6 year,
+				event_datetime - interval {{attribution_loockback_window}},
 				previos_marketing_goal_to_reset_sources_datetime + interval 1 second
 			)																			as attribution_window_started_datetime,
 
