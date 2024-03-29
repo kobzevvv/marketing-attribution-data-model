@@ -56,7 +56,7 @@
     {
         "key": "page_location",
         "value": {
-            "string_value": "https://www.domain.com.com/some_sub_domain/some_sub_domain-adv-place/advanced-placement-social-studies.html?utm_medium=cpc&utm_source=google&utm_campaign=ap.ss.seo.camp.05.2022.google&utm_term=amsco%20apush&utm_campaign=AP+SS+Campaign+05.2022&utm_source=adwords&utm_medium=ppc&hsa_acc=5452597507&hsa_cam=17212552761&hsa_grp=139412520871&hsa_ad=597178326235&hsa_src=s&hsa_tgt=kwd-295958613531&hsa_kw=amsco%20apush&hsa_mt=b&hsa_net=adwords&hsa_ver=3&wbraid=CjgKCAjwnOipBhAAEigAzMKgNWhHp0a3DXaGM64Rzo38krUBjXhJ3WGdtdAIxOb3UOxsod_8GgIDsg",
+            "string_value": "https://www.domain.com.com/some_sub_domain/some_sub_domain-adv-place/advanced-placement-social-some_word.html?utm_medium=cpc&utm_source=google&utm_campaign=ap.ss.seo.camp.05.2022.google&utm_term=amsco%20apush&utm_campaign=AP+SS+Campaign+05.2022&utm_source=adwords&utm_medium=ppc&hsa_acc=5452597507&hsa_cam=17212552761&hsa_grp=139412520871&hsa_ad=597178326235&hsa_src=s&hsa_tgt=kwd-295958613531&hsa_kw=amsco%20apush&hsa_mt=b&hsa_net=adwords&hsa_ver=3&wbraid=CjgKCAjwnOipBhAAEigAzMKgNWhHp0a3DXaGM64Rzo38krUBjXhJ3WGdtdAIxOb3UOxsod_8GgIDsg",
             "int_value": null,
             "float_value": null,
             "double_value": null
@@ -65,7 +65,7 @@
     {
         "key": "page_title",
         "value": {
-            "string_value": "Advanced Placement\u00ae\u2014Social Studies - Advanced Placement - product name | company name",
+            "string_value": "Advanced Placement\u00ae\u2014Social some_word - Advanced Placement - product name | company name",
             "int_value": null,
             "float_value": null,
             "double_value": null
