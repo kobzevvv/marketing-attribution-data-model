@@ -28,19 +28,14 @@ with
     events_with_granula_and_sources_params_extracted as (
         select 
             event_datetime,
-            toLowCardinality(prospect_id)                                                   as prospect_id,
-
-            toLowCardinality(
-                attributes_map['contact_email']
-            )                                                                           as contact_email,
-
+            toLowCardinality(prospect_id)                                               as prospect_id,
             toLowCardinality(event_name)                                                as event_name,
 
             event_id,
 
             toFloat32OrZero(
-                attributes_map['expected_revenue']
-            )                                                                           as expected_revenue
+                attributes_map['goal_value']
+            )                                                                           as goal_value
 
         from web_visit_events__with_company_info
 
@@ -48,7 +43,7 @@ with
             prospect_id,
             event_name,
             toDate(event_datetime),
-            toUInt32(expected_revenue)
+            toUInt32(goal_value)
     )
 
     -- final

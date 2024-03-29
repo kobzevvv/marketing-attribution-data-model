@@ -25,7 +25,7 @@ with
 	-- first touch and last touch 
 		(	matched_marketing_goal_event_datetime,
 			1,
-            expected_revenue,
+            goal_value,
             goal_event_id
 		) 																				as single_touch_traffic_source_event_datetime_weight_and_goal_value_tuple,
 
@@ -38,7 +38,7 @@ with
 				0.5	
 			),
 
-            expected_revenue,
+            goal_value,
             goal_event_id
 		) 																				as u_model_traffic_source_event_datetime_weight_and_goal_value_tuple,
 
@@ -91,7 +91,7 @@ with
                     / 
                         length(traffic_sources_events_in_lookback_window_datetime_id_and_is_direct_array),
 
-                    expected_revenue,
+                    goal_value,
                     goal_event_id
                 )                                                                       as goal_tuple
                 	

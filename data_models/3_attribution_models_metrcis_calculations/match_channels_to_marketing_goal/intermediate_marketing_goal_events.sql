@@ -28,28 +28,20 @@ with
                     'purchase',
                     'sample_form',
                     'file_download',
-                    -- 'contact created', (from hubspot)
                     'Closed Won'
                 ]
     ),
 
     events_with_granula_and_sources_params_extracted as (
-        with
-            toLowCardinality(
-                attributes_map['contact_email']
-            )                                                                           as contact_email
-
         select 
             event_datetime,
-            toLowCardinality(prospect_id)                                                   as prospect_id,
-            contact_email,
+            toLowCardinality(prospect_id)                                               as prospect_id,
             toLowCardinality(event_name)                                                as event_name,
             event_id,
 
             toFloat32OrZero(
-                attributes_map['expected_revenue']
-            )                                                                           as expected_revenue
-
+                attributes_map['goal_value']
+            )                                                                           as goal_value
 
         from web_visit_events__with_company_info
 

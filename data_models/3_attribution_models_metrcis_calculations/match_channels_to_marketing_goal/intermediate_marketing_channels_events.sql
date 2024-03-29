@@ -8,34 +8,31 @@ with
         select * from {{ref('activity_stream')}}
     ),
 
+    gsheet_marketing_channel_features as (
+        select marketing_channel_features from ref('gsheet_marketing_channel_features')
+    ),
 
-
+    gsheet_marketing_attribution_params as (
+        select * from ref('gsheet_marketing_attribution_params')
+    ),
 
     -- params
-        (           prospect_id != 'domain.com'
-            and     not match(prospect_id, '^\\d+\\.\\d+$')
-            and     position(prospect_id,'.') > 0
-        )                                                                               as is_prospect_id_equal_prospect_prospect_id,
+        {% set condition_to_exclude_test_and_noise_prospects %}
+            select param_value
+            from gsheet_marketing_attribution_params
+            where 
+                param_name = 'condition_to_exclude_test_and_noise_prospects'
+        {% endset %}
 
-        [ 
-            'traffic_source_medium',
-            'traffic_source_name',
-            'session_channel',
-            'session_source',
-            'session_campaign',
-            --'page_referrer',
-            'traffic_source_source',
-            'session_term',
-            'session_content'
-        ]                                                                               as traffic_source_attributes_names_array,
-
+        (
+        select marketing_channel_features
+        from gsheet_marketing_channel_features
+        )                                                                               as traffic_source_attributes_names_array,
 
     web_visit_events__with_company_info as (
         select *
         from intermediate_activity_events_with_identified_email_materialized
-        
-        where       
-                    is_prospect_id_equal_prospect_prospect_id
+        where ({{condition_to_exclude_test_and_noise_prospects}}) 
     ),
 
     events_with_granula_and_sources_params_extracted as (
@@ -44,7 +41,7 @@ with
 
         select 
             event_datetime,
-            prospect_id                                                                     as prospect_id,
+            prospect_id                                                                 as prospect_id,
             attributes_map['contact_email']                                             as contact_email,
             event_id,
             

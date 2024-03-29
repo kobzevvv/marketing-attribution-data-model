@@ -20,7 +20,7 @@ with
             event_name                                                                  as goal_event_name,
             event_datetime                                                              as goal_event_datetime,
 
-            sales_events.expected_revenue,
+            sales_events.goal_value,
 
             matched_marketing_goal_event_id,
             marketing_goal_event_name                                                   as matched_marketing_goal_event_name,
@@ -45,7 +45,7 @@ with
             marketing_goal_event_name                                                   as goal_event_name,
             marketing_goal_event_datetime                                               as goal_event_datetime,
 
-            expected_revenue,
+            goal_value,
 
             marketing_goal_event_id                                                     as matched_marketing_goal_event_id,
 

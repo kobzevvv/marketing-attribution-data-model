@@ -72,11 +72,10 @@ with
             if_exist_paid_traffic_source,
 
 			event_datetime 																as marketing_goal_event_datetime,
-			contact_email,
 			is_new_engagment_started,
 			event_name 																	as marketing_goal_event_name,
 			event_id 																	as marketing_goal_event_id,
-            expected_revenue
+            goal_value
 	
 		from marketing_key_goal_events_with_traffic_sources_array
 	)
