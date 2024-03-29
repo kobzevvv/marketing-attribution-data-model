@@ -40,7 +40,7 @@ with
             event_id,
 
             toFloat32OrZero(
-                attributes_map['goal_value']
+                features_map['goal_value']
             )                                                                           as goal_value
 
         from web_visit_events__with_company_info

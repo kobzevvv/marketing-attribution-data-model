@@ -36,12 +36,12 @@ with
 
     events_with_granula_and_sources_params_extracted as (
         with 
-            length(traffic_source_attributes_map) > 0                                   as if_event_have_any_marketing_channel_info
+            length(traffic_source_features_map) > 0                                   as if_event_have_any_marketing_channel_info
 
         select 
             event_datetime,
             prospect_id                                                                 as prospect_id,
-            attributes_map['contact_email']                                             as contact_email,
+            features_map['contact_email']                                             as contact_email,
             event_id,
             
             mapFilter(
@@ -49,8 +49,8 @@ with
                             key in traffic_source_attributes_names_array
                     and     value !='',
 
-                attributes_map
-            )                                                                           as traffic_source_attributes_map,
+                features_map
+            )                                                                           as traffic_source_features_map,
 
             event_name
 
@@ -62,14 +62,14 @@ with
         with 
             mapSort(
                 ( key,value ) -> key,
-                traffic_source_attributes_map
-            )                                                                           as traffic_source_attributes_map_sorted,
+                traffic_source_features_map
+            )                                                                           as traffic_source_features_map_sorted,
 
             cityHash64(
                 prospect_id,
                 contact_email,
                 toStartOfQuarter(event_datetime),
-                traffic_source_attributes_map_sorted
+                traffic_source_features_map_sorted
             )                                                                           as traffic_source_hash
 
 
@@ -77,12 +77,12 @@ with
         select 
             traffic_source_hash,
 
-                traffic_source_attributes_map['marketing_channel'] ilike '%paid%'
-            or  traffic_source_attributes_map['marketing_channel'] = 'ABM'
-            or  traffic_source_attributes_map['marketing_channel'] ilike '%Ads%'            as is_paid_channel,
+                traffic_source_features_map['marketing_channel'] ilike '%paid%'
+            or  traffic_source_features_map['marketing_channel'] = 'ABM'
+            or  traffic_source_features_map['marketing_channel'] ilike '%Ads%'            as is_paid_channel,
 
             --
-                traffic_source_attributes_map['session_channel'] 
+                traffic_source_features_map['session_channel'] 
             in  
                 [   'direct',
                     'offline'
