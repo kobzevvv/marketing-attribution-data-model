@@ -41,7 +41,7 @@ with
 
         *
 
-    from `improvado-9598-90e.analytics_407788275.events_20*`
+    from `bigquery-account-id.analytics_407788275.ga4_explicit_timestamp_utc`
   )
 
 select *
