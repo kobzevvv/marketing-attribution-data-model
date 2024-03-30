@@ -4,20 +4,20 @@ columns:
     data_type: String
     description: Unique identifier for each event
     constraints:
-      - not_null: true
+      - not_zero: true
       - unique: true
 
   - column_name: event_datetime
     data_type: DateTime
     description: DateTime of when the event occurred
     constraints:
-      - not_null: true
+      - not_1970: true
 
   - column_name: prospect_id
     data_type: String
     description: Unique identifier for the prospect involved in the event
     constraints:
-      - not_null: true
+      - not_empty: true
 
   - column_name: features_map
     data_type: Map(LowCardinality(String), String)
@@ -25,6 +25,6 @@ columns:
 
   - column_name: datasource_name
     data_type: String
-    description: Name of the datasource where the event data originated
+    description: Name of the datasource where the event data originated. for data-qa perposes
     constraints:
       - not_null: true
