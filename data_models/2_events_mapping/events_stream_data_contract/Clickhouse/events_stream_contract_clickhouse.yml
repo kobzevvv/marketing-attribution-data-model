@@ -24,7 +24,7 @@ columns:
   description: Key-value pairs of event features, with keys as feature names and values as feature data
 
 - column_name: datasource_name
-  data_type: String
+  data_type: LowCardinality(String)
   description: Name of the datasource where the event data originated. for data-qa perposes
   constraints:
   - not_null: true

@@ -25,6 +25,6 @@ columns:
 
 - column_name: datasource_name
   data_type: String
-  description: Name of the datasource where the event data originated
+  description: Name of the datasource where the event data originated. Needed for QA perposes.
   constraints:
   - not_null: true
