@@ -34,40 +34,40 @@ with
         with
             argMaxIf(
                 marketing_goal_event_id,
-                marketing_goal_event_datetime,
+                marketing_goal_timestamp,
 
-                        marketing_goal_event_datetime 
-                    <=   sales_goals.event_datetime
+                        marketing_goal_timestamp 
+                    <=   sales_goals.timestamp
                 and
                     if_exist_paid_traffic_source
             )                                                                           as event_id_with_paid_traffic_source,
 
             argMaxIf(
                 marketing_goal_event_id,
-                marketing_goal_event_datetime,
+                marketing_goal_timestamp,
 
-                        marketing_goal_event_datetime 
-                    <=   sales_goals.event_datetime
+                        marketing_goal_timestamp 
+                    <=   sales_goals.timestamp
                 and
                     if_exist_non_direct_traffic_source
             )                                                                           as event_id_with_non_direct_traffic_source,
 
             argMaxIf(
                 marketing_goal_event_id,
-                marketing_goal_event_datetime,
+                marketing_goal_timestamp,
 
-                        marketing_goal_event_datetime 
-                    <=   sales_goals.event_datetime
+                        marketing_goal_timestamp 
+                    <=   sales_goals.timestamp
                 and
                     traffic_source_events_count > 0
             )                                                                           as event_id_with_not_zero_traffic_source,
            
             argMaxIf(
                 marketing_goal_event_id,
-                marketing_goal_event_datetime,
+                marketing_goal_timestamp,
 
-                    marketing_goal_event_datetime 
-                <=   sales_goals.event_datetime
+                    marketing_goal_timestamp 
+                <=   sales_goals.timestamp
             )                                                                           as event_id_with_any_traffic_source_events
 
         select

@@ -2,7 +2,7 @@ WITH
     _events_data AS (
             SELECT 
                 1                                                                               AS event_id, 
-                '2023-03-29 10:00:00'                                                           AS event_datetime, 
+                '2023-03-29 10:00:00'                                                           AS timestamp, 
                 'prospect_001'                                                                  AS prospect_id, 
                 [   ('page_location', '/home'), 
                     ('page_title', 'Home Page'), 
@@ -79,7 +79,7 @@ WITH
 --
     SELECT 
         event_id,
-        toDateTime(event_datetime)                                                       AS event_datetime,
+        toDateTime(timestamp)                                                       AS timestamp,
         prospect_id,
 
         cast(

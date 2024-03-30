@@ -18,7 +18,7 @@ with
             groupArray(
                 (   event_id,
                     event_name,
-                    event_datetime
+                    timestamp
                 )
             )                                                                           as marketing_key_goal_events_array
 
@@ -40,8 +40,8 @@ with
             arrayFilter(
                 marketing_key_goal_event_tuple -> 
                     marketing_key_goal_event_tuple.3 
-                        between event_datetime - interval {{sales_engagment_lifecycle_duration}}
-                            and event_datetime - interval 1 second,
+                        between timestamp - interval {{sales_engagment_lifecycle_duration}}
+                            and timestamp - interval 1 second,
 
                 marketing_key_goal_events_array
             )                                                                           as marketing_key_goal_events_in_the_same_lifecycle_status_array
@@ -61,7 +61,7 @@ with
     goals_with_engadgments as (
         select
             prospect_id,
-            event_datetime                                                              as engadgment_goal_datetime
+            timestamp                                                              as engadgment_goal_datetime
 
         from marketing_key_goal_events_with_lifecycle_status
         where is_new_engagment_started
@@ -78,7 +78,7 @@ with
 
         where 
                 engadgment_goal_datetime 
-            <   all_goals.event_datetime - interval 2 day
+            <   all_goals.timestamp - interval 2 day
 
         group by all_goals.event_id
     ),

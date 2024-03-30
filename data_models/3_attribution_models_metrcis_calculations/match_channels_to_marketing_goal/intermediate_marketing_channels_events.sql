@@ -40,7 +40,7 @@ with
             )                                                                           as traffic_source_attributes_names_array
 
         select 
-            event_datetime,
+            timestamp,
             prospect_id                                                                 as prospect_id,
             features_map['contact_email']                                               as contact_email,
             event_id,
@@ -69,7 +69,7 @@ with
             cityHash64(
                 prospect_id,
                 contact_email,
-                toStartOfQuarter(event_datetime),
+                toStartOfQuarter(timestamp),
                 traffic_source_features_map_sorted
             )                                                                           as traffic_source_hash
 

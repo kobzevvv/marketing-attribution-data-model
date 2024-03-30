@@ -2,7 +2,7 @@ WITH
     test_data AS (
             SELECT 
                 1                                                                            AS event_id,
-                TIMESTAMP('2023-03-29 10:00:00 UTC')                                         AS event_datetime,
+                TIMESTAMP('2023-03-29 10:00:00 UTC')                                         AS timestamp,
                 'prospect_001'                                                               AS prospect_id,
                 
                 ARRAY<STRUCT<key STRING, value STRING>>[
@@ -20,7 +20,7 @@ WITH
 
             SELECT 
                 2                                                                            AS event_id,
-                TIMESTAMP('2023-03-29 10:05:00 UTC')                                         AS event_datetime,
+                TIMESTAMP('2023-03-29 10:05:00 UTC')                                         AS timestamp,
                 'prospect_002'                                                               AS prospect_id,
 
                 ARRAY<STRUCT<key STRING, value STRING>>[
@@ -39,7 +39,7 @@ WITH
 
             SELECT 
                 3                                                                            AS event_id,
-                TIMESTAMP('2023-03-29 11:00:00 UTC')                                         AS event_datetime,
+                TIMESTAMP('2023-03-29 11:00:00 UTC')                                         AS timestamp,
                 'prospect_003'                                                               AS prospect_id,
 
                 ARRAY<STRUCT<key STRING, value STRING>>[
@@ -52,7 +52,7 @@ WITH
 
             SELECT 
                 4                                                                            AS event_id,
-                TIMESTAMP('2023-03-30 09:00:00 UTC')                                         AS event_datetime,
+                TIMESTAMP('2023-03-30 09:00:00 UTC')                                         AS timestamp,
                 'prospect_003'                                                               AS prospect_id,
 
                 ARRAY<STRUCT<key STRING, value STRING>>[
@@ -65,7 +65,7 @@ WITH
 
             SELECT 
                 5                                                                            AS event_id,
-                TIMESTAMP('2023-04-01 14:00:00 UTC')                                         AS event_datetime,
+                TIMESTAMP('2023-04-01 14:00:00 UTC')                                         AS timestamp,
 
                 'prospect_003'                                                               AS prospect_id,
 
@@ -78,7 +78,7 @@ WITH
 
             SELECT 
                 6                                                                            AS event_id,
-                TIMESTAMP('2023-04-02 16:00:00 UTC')                                         AS event_datetime,
+                TIMESTAMP('2023-04-02 16:00:00 UTC')                                         AS timestamp,
                 'prospect_004'                                                               AS prospect_id,
 
                 ARRAY<STRUCT<key STRING, value STRING>>[

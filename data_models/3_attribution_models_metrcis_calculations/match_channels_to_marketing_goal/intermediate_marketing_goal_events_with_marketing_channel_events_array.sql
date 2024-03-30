@@ -34,9 +34,9 @@ with
 
 					traffic_source_event_tuple.1
 						between	attribution_window_started_datetime
-							and event_datetime,
+							and timestamp,
 					
-				traffic_source_event_datetime_id_and_is_direct_array
+				traffic_source_timestamp_id_and_is_direct_array
 			)                                                   						as traffic_sources_events_in_lookback_window_datetime_id_and_is_direct_array,
 
             length(traffic_sources_events_in_lookback_window_datetime_id_and_is_direct_array) as traffic_source_events_count,
@@ -72,7 +72,7 @@ with
 			prospect_id, 
 			
 			greatest(
-				event_datetime - interval {{attribution_loockback_window}},
+				timestamp - interval {{attribution_loockback_window}},
 				previos_marketing_goal_to_reset_sources_datetime + interval 1 second
 			)																			as attribution_window_started_datetime,
 
@@ -81,7 +81,7 @@ with
             if_exist_non_direct_traffic_source,
             if_exist_paid_traffic_source,
 
-			event_datetime 																as marketing_goal_event_datetime,
+			timestamp 																as marketing_goal_timestamp,
 			is_new_engagment_started,
 			event_name 																	as marketing_goal_event_name,
 			event_id 																	as marketing_goal_event_id,

@@ -64,7 +64,7 @@ with
             disco_assignee,
             event_timestamp,
             event_date,
-            event_datetime,
+            timestamp,
             event_name,
             ga_client_id,
             user_first_touch_timestamp,

@@ -48,7 +48,7 @@ with
 
     events_with_granula_and_sources_params_extracted as (
         select 
-            event_datetime,
+            timestamp,
             toLowCardinality(prospect_id)                                               as prospect_id,
             toLowCardinality(event_name)                                                as event_name,
 
@@ -63,7 +63,7 @@ with
         limit 1 by 
             prospect_id,
             event_name,
-            toDate(event_datetime),
+            toDate(timestamp),
             toUInt32(goal_value)
     )
 

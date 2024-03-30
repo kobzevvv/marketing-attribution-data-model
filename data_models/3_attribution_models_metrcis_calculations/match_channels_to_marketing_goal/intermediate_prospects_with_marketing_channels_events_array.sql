@@ -23,7 +23,7 @@ with
     prospects_with_events_array as (
         with 
             groupArray(
-                (   event_datetime,
+                (   timestamp,
                     event_id,
                     is_direct_channel,
                     is_paid_channel
@@ -34,9 +34,9 @@ with
             prospect_id,
 
             arraySort(
-                event_tuple -> event_tuple.1                                            as nested_event_datetime,
+                event_tuple -> event_tuple.1                                            as nested_timestamp,
                 events_tuples_array_not_ordered
-            )                                                                           as traffic_source_event_datetime_id_and_is_direct_array
+            )                                                                           as traffic_source_timestamp_id_and_is_direct_array
             
         from _marketing_channel_events_deduplicated
         group by prospect_id

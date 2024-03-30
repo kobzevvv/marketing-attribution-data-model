@@ -19,13 +19,13 @@ with
             prospect_id,
             event_id                                                                    as goal_event_id,
             event_name                                                                  as goal_event_name,
-            event_datetime                                                              as goal_event_datetime,
+            timestamp                                                              as goal_timestamp,
 
             sales_events.goal_value,
 
             matched_marketing_goal_event_id,
             marketing_goal_event_name                                                   as matched_marketing_goal_event_name,
-            marketing_goal_event_datetime                                               as matched_marketing_goal_event_datetime,
+            marketing_goal_timestamp                                               as matched_marketing_goal_timestamp,
             attribution_window_started_datetime,
             is_new_engagment_started,
             traffic_sources_events_in_lookback_window_datetime_id_and_is_direct_array
@@ -44,14 +44,14 @@ with
             prospect_id,
             marketing_goal_event_id                                                     as goal_event_id,
             marketing_goal_event_name                                                   as goal_event_name,
-            marketing_goal_event_datetime                                               as goal_event_datetime,
+            marketing_goal_timestamp                                               as goal_timestamp,
 
             goal_value,
 
             marketing_goal_event_id                                                     as matched_marketing_goal_event_id,
 
             marketing_goal_event_name                                                   as matched_marketing_goal_event_name,
-            marketing_goal_event_datetime                                               as matched_marketing_goal_event_datetime,
+            marketing_goal_timestamp                                               as matched_marketing_goal_timestamp,
             attribution_window_started_datetime,
             is_new_engagment_started,
             traffic_sources_events_in_lookback_window_datetime_id_and_is_direct_array

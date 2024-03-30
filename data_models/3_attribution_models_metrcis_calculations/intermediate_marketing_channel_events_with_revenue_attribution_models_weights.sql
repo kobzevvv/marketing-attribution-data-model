@@ -24,14 +24,14 @@ with
 		)																				as event_sql_name,
 
 	-- first touch and last touch 
-		(	matched_marketing_goal_event_datetime,
+		(	matched_marketing_goal_timestamp,
 			1,
             goal_value,
             goal_event_id
-		) 																				as single_touch_traffic_source_event_datetime_weight_and_goal_value_tuple,
+		) 																				as single_touch_traffic_source_timestamp_weight_and_goal_value_tuple,
 
     -- and u model
-		(	matched_marketing_goal_event_datetime,
+		(	matched_marketing_goal_timestamp,
 			if(
 				length(traffic_sources_events_in_lookback_window_datetime_id_and_is_direct_array)=1,
 				1,
@@ -41,7 +41,7 @@ with
 
             goal_value,
             goal_event_id
-		) 																				as u_model_traffic_source_event_datetime_weight_and_goal_value_tuple,
+		) 																				as u_model_traffic_source_timestamp_weight_and_goal_value_tuple,
 
 
 		traffic_source_event_with_contribution_as_a_first_touch as (
@@ -49,11 +49,11 @@ with
 				traffic_sources_events_in_lookback_window_datetime_id_and_is_direct_array[1].2  	as traffic_source_event_id,
 
 				[	(	event_sql_name || '_first_touch' || '_by_company',
-						single_touch_traffic_source_event_datetime_weight_and_goal_value_tuple
+						single_touch_traffic_source_timestamp_weight_and_goal_value_tuple
 					),
 
 					(	event_sql_name || '_u_model' || '_by_company',
-						u_model_traffic_source_event_datetime_weight_and_goal_value_tuple
+						u_model_traffic_source_timestamp_weight_and_goal_value_tuple
 					)
 				]																		as goals_with_params_array
 
@@ -66,11 +66,11 @@ with
 				traffic_sources_events_in_lookback_window_datetime_id_and_is_direct_array[-1].2 	as traffic_source_event_id,
 
 				[	(	event_sql_name || '_last_touch' || '_by_company',
-						single_touch_traffic_source_event_datetime_weight_and_goal_value_tuple
+						single_touch_traffic_source_timestamp_weight_and_goal_value_tuple
 					),
 
 					(	event_sql_name || '_u_model' || '_by_company',
-						u_model_traffic_source_event_datetime_weight_and_goal_value_tuple
+						u_model_traffic_source_timestamp_weight_and_goal_value_tuple
 					)
 				]																		as goals_with_params_array
 
@@ -86,7 +86,7 @@ with
 				
 				goal_event_name,
 
-                (   goal_event_datetime,
+                (   goal_timestamp,
 
                         1 
                     / 
