@@ -83,7 +83,7 @@
     {
         "key": "sfmc_activity_name",
         "value": {
-            "string_value": "March 2024 Newsletter 3.19.24",
+            "string_value": "March 2024 Newsletter 3.18.24",
             "int_value": null,
             "float_value": null,
             "double_value": null
@@ -101,7 +101,7 @@
     {
         "key": "sfmc_journey_id",
         "value": {
-            "string_value": "f16ef838-8f0e-49ab-82be-6d983acba678",
+            "string_value": "f16ef837-8f0e-49ab-82be-6d983acba678",
             "int_value": null,
             "float_value": null,
             "double_value": null
@@ -128,7 +128,7 @@
     {
         "key": "sfmc_activity_id",
         "value": {
-            "string_value": "74954791-be9d-4407-8617-c1003b263389",
+            "string_value": "74954781-be9d-4307-8617-c1003b263389",
             "int_value": null,
             "float_value": null,
             "double_value": null
