@@ -1,7 +1,7 @@
 contract_name: events_stream_columns
 columns:
   - column_name: event_id
-    data_type: String
+    data_type: UInt64
     description: Unique identifier for each event
     constraints:
       - not_null: true
