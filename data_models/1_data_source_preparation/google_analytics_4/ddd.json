@@ -1,0 +1,92 @@
+[
+    {
+        "key": "medium",
+        "value": {
+            "string_value": "ppc",
+            "int_value": null,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "source",
+        "value": {
+            "string_value": "adwords",
+            "int_value": null,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "session_engaged",
+        "value": {
+            "string_value": "0",
+            "int_value": null,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "ga_session_id",
+        "value": {
+            "string_value": null,
+            "int_value": 1698427136,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "term",
+        "value": {
+            "string_value": "amsco apush",
+            "int_value": null,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "campaign",
+        "value": {
+            "string_value": "AP SS Campaign 05.2022",
+            "int_value": null,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "page_location",
+        "value": {
+            "string_value": "https://www.perfectionlearning.com/high-school/high-school-adv-place/advanced-placement-social-studies.html?utm_medium=cpc&utm_source=google&utm_campaign=ap.ss.seo.camp.05.2022.google&utm_term=amsco%20apush&utm_campaign=AP+SS+Campaign+05.2022&utm_source=adwords&utm_medium=ppc&hsa_acc=5452597507&hsa_cam=17212552761&hsa_grp=139412520871&hsa_ad=597178326235&hsa_src=s&hsa_tgt=kwd-295958613531&hsa_kw=amsco%20apush&hsa_mt=b&hsa_net=adwords&hsa_ver=3&wbraid=CjgKCAjwnOipBhAAEigAzMKgNWhHp0a3DXaGM64Rzo38krUBjXhJ3WGdtdAIxOb3UOxsod_8GgIDsg",
+            "int_value": null,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "page_title",
+        "value": {
+            "string_value": "Advanced Placement\u00ae\u2014Social Studies - Advanced Placement - High School | Perfection Learning",
+            "int_value": null,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "entrances",
+        "value": {
+            "string_value": null,
+            "int_value": 1,
+            "float_value": null,
+            "double_value": null
+        }
+    },
+    {
+        "key": "ga_session_number",
+        "value": {
+            "string_value": null,
+            "int_value": 1,
+            "float_value": null,
+            "double_value": null
+        }
+    }
+]

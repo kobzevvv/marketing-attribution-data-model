@@ -1,0 +1,30 @@
+contract_name: events_stream_columns
+columns:
+  - column_name: event_id
+    data_type: String
+    description: Unique identifier for each event
+    constraints:
+      - not_null: true
+      - unique: true
+
+  - column_name: event_datetime
+    data_type: DateTime
+    description: DateTime of when the event occurred
+    constraints:
+      - not_null: true
+
+  - column_name: prospect_id
+    data_type: String
+    description: Unique identifier for the prospect involved in the event
+    constraints:
+      - not_null: true
+
+  - column_name: features_map
+    data_type: ARRAY<STRUCT<key STRING, value STRING>>
+    description: Key-value pairs of event features, with keys as feature names and values as feature data
+
+  - column_name: datasource_name
+    data_type: String
+    description: Name of the datasource where the event data originated
+    constraints:
+      - not_null: true
