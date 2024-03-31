@@ -31,7 +31,7 @@ with
 
             {% set sales_engagment_lifecycle_duration %}
                 select param_value
-                from gsheet_marketing_attribution_params
+                from gsheet_marketing_attribution_coded_params
                 where 
                     param_name = 'sales_engagment_lifecycle_duration'
             {% endset %}

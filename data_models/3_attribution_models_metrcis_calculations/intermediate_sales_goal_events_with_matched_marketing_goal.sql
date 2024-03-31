@@ -13,16 +13,16 @@ with
         select * from {{ref('intermediate_marketing_goal_events_with_marketing_channel_events_array')}}
     ),
 
-    gsheet_marketing_attribution_params as (
-        select * from ref('gsheet_marketing_attribution_params')
+    gsheet_marketing_attribution_coded_params as (
+        select * from ref('gsheet_marketing_attribution_coded_params')
     ),
 
     -- params
         {% set marketing_goal_event_ids_list_by_spriority_to_match_with_sales_goal %}
             select param_value
-            from gsheet_marketing_attribution_params
+            from gsheet_marketing_attribution_coded_params
             where 
-                param_name = 'marketing_goal_event_id_by_spriority_to_match_with_sales_goal'
+                param_name = 'marketing_goal_event_id_by_priority_to_match_with_sales_goal'
         {% endset %}
 
         (   select marketing_channel_features

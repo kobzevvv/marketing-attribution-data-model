@@ -13,15 +13,15 @@ with
         select marketing_channel_features from ref('gsheet_marketing_channel_features')
     ),
 
-    gsheet_marketing_attribution_params as (
-        select * from ref('gsheet_marketing_attribution_params')
+    gsheet_marketing_attribution_coded_params as (
+        select * from ref('gsheet_marketing_attribution_coded_params')
     ),
 
     web_visit_events__with_company_info as (
 
         {% set condition_to_exclude_test_and_noise_prospects %}
             select param_value
-            from gsheet_marketing_attribution_params
+            from gsheet_marketing_attribution_coded_params
             where 
                 param_name = 'condition_to_exclude_test_and_noise_prospects'
         {% endset %}
@@ -75,14 +75,14 @@ with
 
             {% set is_paid_channel_definition %}
                 select param_value
-                from gsheet_marketing_attribution_params
+                from gsheet_marketing_attribution_coded_params
                 where 
                     param_name = 'is_paid_channel_definition'
             {% endset %}
 
             {% set is_paid_channel_definition %}
                 select param_value
-                from gsheet_marketing_attribution_params
+                from gsheet_marketing_attribution_coded_params
                 where 
                     param_name = 'is_paid_channel_definition'
             {% endset %}

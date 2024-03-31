@@ -61,7 +61,7 @@ with
 
             {% set attribution_loockback_window %}
                 select param_value
-                from gsheet_marketing_attribution_params
+                from gsheet_marketing_attribution_coded_params
                 where 
                     param_name = 'attribution_loockback_window'
             {% endset %}

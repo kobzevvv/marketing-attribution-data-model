@@ -10,8 +10,8 @@ with
         select * from {{ref('activity_stream')}}
     ),
 
-    gsheet_marketing_attribution_params as (
-        select * from ref('gsheet_marketing_attribution_params')
+    gsheet_marketing_attribution_coded_params as (
+        select * from ref('gsheet_marketing_attribution_coded_params')
     ),
 
     gsheet_marketing_and_sales_goals as (
@@ -23,7 +23,7 @@ with
 
         {% set condition_to_exclude_test_and_noise_prospects %}
             select param_value
-            from gsheet_marketing_attribution_params
+            from gsheet_marketing_attribution_coded_params
             where 
                 param_name = 'condition_to_exclude_test_and_noise_prospects'
         {% endset %}
