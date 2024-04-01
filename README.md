@@ -3,7 +3,7 @@ This repo contains ready-to-use templates to build a marketing attribution model
 2. How to map all input events to a single One Big Table to make the attribution model independent from the particular context of the company
 3. calculate first-touch, linear, and last-touch models. Folder: 3_attribution_models_metrcis_calculations
 
-Detailed info in this medium post https://medium.com/@kobzevvv/b2b-marketing-attribution-data-model-guide-from-what-it-is-to-code-1730342e59af
+Detailed info in this medium post [https://medium.com/@kobzevvv/b2b-marketing-attribution-data-model-guide-from-what-it-is-to-code-1730342e59af](https://medium.com/@kobzevvv/marketing-attribution-data-model-for-b2b-company-0b0ed26e4f77)
 
 Overview of the domain terminology:
 
